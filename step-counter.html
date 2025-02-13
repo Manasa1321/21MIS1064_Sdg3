@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Step Counter</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            padding: 0;
+            background: url('cc.jpg') no-repeat center center fixed;
+            background-size: cover;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            text-align: center;
+            color: black;
+        }
+        header {
+            background: rgba(0, 123, 255, 0.8);
+            padding: 15px;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            left: 0;
+            z-index: 1000;
+        }
+        nav ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            text-align: center;
+        }
+        nav ul li {
+            display: inline;
+            margin: 0 15px;
+        }
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        .content-section {
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 10px;
+            padding: 40px;
+            width: 50%;
+            text-align: center;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+        }
+        input, button {
+            display: block;
+            width: 80%;
+            margin: 10px auto;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        button {
+            background: #007bff;
+            color: white;
+            cursor: pointer;
+            font-size: 16px;
+            font-weight: bold;
+        }
+        button:hover {
+            background: #0056b3;
+        }
+        canvas {
+            margin-top: 20px;
+            background: white;
+            border-radius: 10px;
+            padding: 10px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="healthy-living.html">Healthy Living</a></li>
+                <li><a href="mental-wellness.html">Mental Wellness</a></li>
+                <li><a href="step-counter.html">Step Counter</a></li>
+            </ul>
+        </nav>
+    </header>
+    <section class="content-section">
+        <h2>Step Counter & Calories Burned</h2>
+        <label for="steps">Enter Steps Walked:</label>
+        <input type="number" id="steps" placeholder="Enter steps">
+        <button onclick="calculateCalories()">Calculate</button>
+        <p id="calories-result">Calories burned will appear here.</p>
+        <canvas id="stepsChart" width="400" height="200"></canvas>
+    </section>
+    <script>
+        function calculateCalories() {
+            let steps = document.getElementById("steps").value;
+            let caloriesBurned = (steps * 0.04).toFixed(2);
+            document.getElementById("calories-result").innerText = "Calories burned: " + caloriesBurned;
+            updateChart(steps);
+        }
+        function updateChart(steps) {
+            let ctx = document.getElementById('stepsChart').getContext('2d');
+            if (window.myChart) window.myChart.destroy();
+            window.myChart = new Chart(ctx, {
+                type: 'bar',
+                data: {
+                    labels: ['Steps'],
+                    datasets: [{
+                        label: 'Steps Walked',
+                        data: [steps],
+                        backgroundColor: 'rgba(54, 162, 235, 0.6)',
+                        borderColor: 'rgba(54, 162, 235, 1)',
+                        borderWidth: 1
+                    }]
+                },
+                options: {
+                    scales: {
+                        y: { beginAtZero: true }
+                    }
+                }
+            });
+        }
+    </script>
+</body>
+</html>

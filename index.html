@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Health First</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            padding: 0;
+            text-align: center;
+            background: url('cc.jpg') no-repeat center center fixed;
+            background-size: cover;
+            color: black;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        header {
+            background: rgba(0, 123, 255, 0.8);
+            padding: 15px;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            left: 0;
+            z-index: 1000;
+        }
+        nav ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            text-align: center;
+        }
+        nav ul li {
+            display: inline;
+            margin: 0 15px;
+        }
+        nav ul li a {
+            color: black;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        .hero {
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 10px;
+            padding: 40px;
+            width: 50%;
+            text-align: center;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.5);
+        }
+        .btn {
+            display: inline-block;
+            padding: 10px 20px;
+            margin: 10px;
+            background: pink;
+            color: black;
+            text-decoration: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: transform 0.3s ease, background 0.3s ease, box-shadow 0.8s ease;
+        }
+        .btn:hover {
+            transform: scale(1.1);
+            background: #ff69b4;
+            box-shadow: blue;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About Us</a></li>
+                <li><a href="healthy-living.html">Healthy Living</a></li>
+                <li><a href="mental-wellness.html">Mental Wellness</a></li>
+                <li><a href="step-counter.html">Step Counter</a></li>
+            </ul>
+        </nav>
+    </header>
+    <section id="home" class="hero">
+        <h1>SDG-3: Good Health and Well-being </h1>
+        <p>Promoting healthy living, mental wellness, and disease prevention.</p>
+        <p>Choose a category to explore:</p>
+        <a href="about.html" class="btn">About Us</a>
+        <a href="healthy-living.html" class="btn">Healthy Living</a>
+        <a href="mental-wellness.html" class="btn">Mental Wellness</a>
+        <a href="step-counter.html" class="btn">Step Counter</a>
+      
+    </section>
+</body>
+</html>
